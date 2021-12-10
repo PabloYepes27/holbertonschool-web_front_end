@@ -1,0 +1,15 @@
+/* write a Sass that assigns
+ margin 10px to all of the p tags inside body tags*/
+
+$no-margin: 0px;
+$no-padding: 0px;
+$margin: 10px;
+
+body {
+    margin: $no-margin;
+    padding: $no-padding;
+
+    p {
+        margin: $margin;
+}
+}
