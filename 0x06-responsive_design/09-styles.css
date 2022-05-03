@@ -159,7 +159,7 @@ template {
 }
 
 /* Variables
-============================= */
+  ============================= */
 
 :root {
   --color-primary: #d73953;
@@ -242,7 +242,7 @@ template {
 }
 
 /* Base
-    ============================= */
+      ============================= */
 
 *,
 *:before,
@@ -318,20 +318,25 @@ a:active {
   background: var(--color-white);
 }
 
-@media screen and (max-width: 480px) {
-  html {
-    font-size: 57%;
+@media screen and (max-width: 480px) {	
+  .html {	
+      font-size: 57%;	
   }
 }
 
-@media screen and (min-width: 481px) and (max-width: 767px) {
-  html {
-    font-size: 60%;
+@media screen and (min-width: 481px) and (max-width: 767px) {	
+  .html {	
+      font-size: 60%;	
   }
 }
 
 /* Helpers
-    ============================= */
+      ============================= */
+
+main img {
+  width: 100%;
+  height: auto;
+}
 
 .visually-hidden:not(:focus):not(:active) {
   position: absolute !important;
@@ -342,15 +347,10 @@ a:active {
   white-space: nowrap;
 }
 
-main img {
-  width: 100%;
-  height: auto;
-}
-
 /*** 2. LAYOUT ***/
 
 /* Layout
-    ============================= */
+      ============================= */
 
 .container {
   max-width: 960px;
@@ -359,7 +359,7 @@ main img {
 }
 
 /* Grid
-    ============================= */
+      ============================= */
 
 ul.row {
   margin: -1rem;
@@ -404,9 +404,8 @@ ul.row {
     width: 100%;
   }
 }
-
 /* Navbar
-    ============================= */
+      ============================= */
 
 .nav {
   margin: 0;
@@ -473,7 +472,7 @@ ul.row {
 }
 
 /* Header
-    ============================= */
+      ============================= */
 
 .header {
   padding: var(--header-padding);
@@ -488,22 +487,40 @@ ul.row {
   align-items: center;
 }
 
-/* Footer
-    ============================= */
-
-@media screen and (max-width: 767px) {
-  :root {
-    --footer-padding: 5rem 2rem 1rem;
-  }
-  .nav .social.nav,
-  .nav .footer-nav {
-    text-align: center;
-  }
-  .social.nav li + li,
-  .footer-nav li + li {
-    padding-left: 2rem;
-  }
+.header .menu-icon {
+  cursor: pointer;
+  padding: 2.5rem;
+  position: relative;
+  user-select: none;
+  display: none;
 }
+.header .menu-icon .navicon {
+  background: var(--color-white);
+  display: block;
+  width: 2rem;
+  height: .2rem;
+  position: relative;
+  transition: background .2s ease-out;
+}
+.header .menu-icon .navicon::before,
+.header .menu-icon .navicon::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: var(--color-white);
+  transition: all .2s ease-out;
+}
+.header .menu-icon .navicon::before {
+  top: .7rem;
+}
+.header .menu-icon .navicon::after {
+  top: -.7rem;
+}
+
+/* Footer
+      ============================= */
 
 .footer {
   --nav-item-font-weight: normal;
@@ -533,10 +550,26 @@ ul.row {
   fill: var(--text-color);
 }
 
+@media screen and (max-width: 767px) {
+  :root {
+    --footer-padding: 5rem 2rem 1rem;
+  }
+
+  .footer .footer-nav,
+  .footer .social.nav{
+    text-align: center;
+  }
+
+  .social.nav li + li,
+  .footer-nav li + li {
+      padding-left: 2rem;
+  }
+}
+
 /*** 3. SECTION ***/
 
 /* Section (all styles)
-    ============================= */
+      ============================= */
 
 .section {
   padding: var(--section-padding);
@@ -573,7 +606,7 @@ ul.row {
 }
 
 /* Section theming
-    ============================= */
+      ============================= */
 
 [data-section-theme="dark"] {
   --button-color: var(--color-white);
@@ -583,7 +616,7 @@ ul.row {
 }
 
 /* Section HERO
-    ============================= */
+      ============================= */
 
 .section-hero {
   position: relative;
@@ -618,7 +651,7 @@ ul.row {
   min-height: 35vh;
 }
 /* Section Latest news
-    ============================= */
+      ============================= */
 
 @media screen and (max-width: 767px) {
   .section-latest-news .row {
@@ -627,14 +660,14 @@ ul.row {
 }
 
 /* Section SERVICES
-    ============================= */
+      ============================= */
 
 .section-services .row {
   flex-wrap: wrap;
 }
 
 /* Section ABOUT US
-    ============================= */
+      ============================= */
 
 .section-about-us [class*="col-"] {
   align-self: center;
@@ -643,28 +676,14 @@ ul.row {
 /*** 4. CARD ***/
 
 /* Card (all styles)
-    ============================= */
+      ============================= */
 
 .card-category {
   color: var(--color-primary);
 }
 
 /* Card WORK
-    ============================= */
-
-@media screen and (max-width: 767px) {
-  .card-work .card-inner {
-    --text-color: var(--color-white);
-    position: relative;
-  }
-
-  .card-work .card-title {
-    opacity: 1;
-  }
-  .card-work .card-title a {
-    padding: 2rem 1rem 0 1rem;
-  }
-}
+      ============================= */
 
 .card-work .card-outer {
   position: relative;
@@ -728,8 +747,23 @@ ul.row {
   opacity: 1;
 }
 
+@media screen and (max-width: 767px) {
+  .card-work .card-dinner {
+    --text-color: var(--color-white);
+    position: relative;
+  }
+
+  .card-work .card-title {
+    opacity: 1;
+  }
+
+  .card-work .card-title a {
+    padding: 2rem 1rem 0 1rem;
+  }
+}
+
 /* Card SERVICES
-    ============================= */
+      ============================= */
 
 .card-services .card-title {
   margin: 0;
@@ -750,7 +784,7 @@ ul.row {
 }
 
 /* Card TESTIMONIAL
-    ============================= */
+      ============================= */
 
 .card-testimonial {
   text-align: center;
@@ -785,7 +819,7 @@ ul.row {
 /*** ARTICLE PAGE ***/
 
 /* Section HERO (article)
-    ============================= */
+      ============================= */
 
 .hero-article {
   background-size: 150rem 100rem;
@@ -819,20 +853,8 @@ ul.row {
   padding: 5rem 0;
 }
 
-@media screen and (max-width: 767px) {
-  .section-hero {
-    margin: -0.1rem 0;
-  }
-  .hero-homepage {
-    background-position: 85% 0;
-  }
-  .section-hero .section-body {
-    padding: 2rem;
-  }
-}
-
 /* Post
-    ============================= */
+      ============================= */
 
 .post {
   display: flex;
@@ -867,7 +889,7 @@ ul.row {
 }
 
 /* Post Meta
-    ============================= */
+      ============================= */
 
 .post-meta-list {
   flex-direction: column;
@@ -894,7 +916,7 @@ ul.row {
 }
 
 /* Tag list
-    ============================= */
+      ============================= */
 
 .tag-list {
   padding: 0;
@@ -916,7 +938,7 @@ ul.row {
 /*** FORM ***/
 
 /* Comment section
-    ============================= */
+      ============================= */
 
 .post-comments {
   width: 80%;
@@ -929,7 +951,7 @@ ul.row {
 }
 
 /* Basic form
-    ============================= */
+      ============================= */
 
 form {
   display: flex;
@@ -984,7 +1006,7 @@ textarea:focus {
 }
 
 /* Form group
-    ============================= */
+      ============================= */
 
 .form-group {
   padding: 1rem;
@@ -998,7 +1020,7 @@ textarea:focus {
 }
 
 /* Form field
-    ============================= */
+      ============================= */
 
 .form-field-container {
   position: relative;
@@ -1009,7 +1031,7 @@ textarea:focus {
 }
 
 /* Form help
-    ============================= */
+      ============================= */
 
 .form-group .form-help {
   margin: 0;
@@ -1028,7 +1050,7 @@ textarea:focus {
 }
 
 /* Form error handling
-    ============================= */
+      ============================= */
 
 input:not(:placeholder-shown) ~ .form-field-icon::after {
   height: 100%;
@@ -1112,55 +1134,10 @@ textarea:valid:not(:placeholder-shown) {
   margin: 0 1rem;
 }
 
-.header .menu-icon {
-  cursor: pointer;
-  padding: 2.5rem;
-  position: relative;
-  user-select: none;
-  display: none;
-}
-
-.header .menu-icon .navicon {
-  background: var(--color-white);
-  display: block;
-  width: 2rem;
-  height: 0.2rem;
-  position: relative;
-  transition: background 0.2s ease-out;
-}
-
-.header .menu-icon .navicon::before,
-.header .menu-icon .navicon::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: var(--color-white);
-  transition: all 0.2s ease-out;
-}
-
-.header .menu-icon .navicon::before {
-  top: 0.7rem;
-}
-
-.header .menu-icon .navicon::after {
-  top: -0.7rem;
-}
-
 /* menu btn */
 
 .header .menu-btn {
   display: none;
-}
-
-.menu-btn:checked ~ .navbar-menu {
-  display: block;
-}
-
-.menu-btn:checked ~ .navbar-menu .nav {
-  max-height: 100%;
-  overflow: inherit;
 }
 
 .header .menu-btn:checked + .menu-icon .navicon {
@@ -1180,30 +1157,39 @@ textarea:valid:not(:placeholder-shown) {
   top: 0;
 }
 
+.menu-btn:checked ~ .navbar-menu {
+  display: block;
+}
+
+.menu-btn:checked ~ .navbar-menu .nav {
+  max-height: 100%;
+  overflow: inherit;
+}
+
 @media screen and (max-width: 767px) {
   :root {
-    --header-padding: 2rem 0 0;
+      --header-padding: 2rem 0 0;
   }
   .header {
-    background: var(--color-black);
+      background: var(--color-black);
   }
   .header-container {
-    flex-wrap: wrap;
-    padding: 0 1.5rem;
+      flex-wrap: wrap;
+      padding: 0 1.5rem;
   }
   .header .menu-icon {
-    display: block;
+      display: block;
   }
 }
 
 @media screen and (max-width: 480px) {
   .header-logo {
-    flex-basis: 70%;
+      flex-basis: 70%;
   }
 }
 
 @media screen and (min-width: 481px) and (max-width: 767px) {
   .header-logo {
-    flex-basis: 79%;
+      flex-basis: 79%;
   }
 }
