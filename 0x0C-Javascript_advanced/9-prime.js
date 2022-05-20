@@ -2,6 +2,7 @@ function countPrimeNumbers() {
     let counter = 0
     for (var i=2; i <= 100; i++) {
         if (i % 2 !== 0) {
+            console.log(i);
             counter++
         };
     };
