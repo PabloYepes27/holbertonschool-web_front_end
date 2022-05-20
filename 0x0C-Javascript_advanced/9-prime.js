@@ -6,6 +6,7 @@ function countPrimeNumbers() {
             counter++
         };
     };
+    return counter;
 };
 
 let start = performance.now();
