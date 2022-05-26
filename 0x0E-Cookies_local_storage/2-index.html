@@ -17,10 +17,10 @@
             const firstname = document.getElementById("firstname").value;
             const email = document.getElementById("email").value;
             const d = new Date();
-            d.setTime(d.getTime() + (exdays*10*24*60*60*1000));
-            let expires = "expires="+ d.toUTCString();
-            document.cookie = `firstname=${firstname}; ${expires}`;
-            document.cookie = `email=${email}; ${expires}`;
+            d.setTime(d.getTime() + 10 * 24 * 60 * 60 * 1000);
+            const expires = `${d.toUTCString()}`;
+            document.cookie = `firstname=${firstname}; expires=${expires}`;
+            document.cookie = `email=${email}; expires=${expires}`;
         }
 
         function showCookies() {
