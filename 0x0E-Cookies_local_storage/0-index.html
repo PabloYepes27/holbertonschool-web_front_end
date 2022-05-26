@@ -24,9 +24,9 @@
             const firstname = listCookies[0].split('=')[1];
             const email = listCookies[1].split('=')[1];
 
-            const newParagraph = document.createElement('p');
-            newParagraph.innerHTML = `Cookies: ${firstname}, ${email}`;
-            document.body.appendChild(newParagraph);
+            const p = document.createElement('p');
+            p.innerHTML = `Cookies: ${firstname}, ${email}`;
+            document.body.appendChild(p);
         }
     </script>
 </body>

@@ -29,9 +29,9 @@
             const firstname = getCookie("firstname");
             const email = getCookie("email");
 
-            const newParagraph = document.createElement('p');
-            newParagraph.innerHTML = `Email: ${email} - Firstname: ${firstname}`;
-            document.body.appendChild(newParagraph);
+            const p = document.createElement('p');
+            p.innerHTML = `Email: ${email} - Firstname: ${firstname}`;
+            document.body.appendChild(p);
         }
 
         function getCookie(name) {
